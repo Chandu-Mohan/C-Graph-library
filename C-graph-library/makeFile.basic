@@ -1,0 +1,24 @@
+CC=gcc
+
+LIBDIR = /usr/lib
+
+INCLUDEDIR = /usr/include
+
+RM = rm -f
+
+LIBNAME = libspl.so
+
+OBJFILES = llist.o stack.o queue.o heap.o uFind.o
+
+
+
+library: $(OBJFILES)
+	gcc -Wall -fPIC -c llist.c stack.c queue.c heap.c uFind.c
+	gcc -shared -o $(LIBNAME) $(OBJFILES)
+OBJFILES: node.h
+install:
+	cp $(LIBNAME) $(LIBDIR)
+	cp node.h llist.h stack.h queue.h uFind.h $(INCLUDEDIR) 
+
+clean:
+	-$(RM) $(OBJFILES)

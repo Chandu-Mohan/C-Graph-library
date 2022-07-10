@@ -1,0 +1,2 @@
+aim:
+	gcc -o graph.out main.c -lspl2 -lspl
